@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Accessible enterprise dashboard overview">
+  <title>Overview | Northstar Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Northstar Dashboard home"><span class="brand-mark" aria-hidden="true">N</span> Northstar</a>
+    <button class="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+    <div class="top-actions">
+      <span class="user-name">Alex Morgan</span>
+      <button class="avatar" type="button" aria-label="Open account menu">AM</button>
+    </div>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <p class="nav-heading">WORKSPACE</p>
+      <nav>
+        <ul>
+          <li><a class="nav-link active" aria-current="page" href="index.html"><span aria-hidden="true">▦</span> Overview</a></li>
+          <li><a class="nav-link" href="employees.html"><span aria-hidden="true">♙</span> Employees</a></li>
+          <li><a class="nav-link" href="reports.html"><span aria-hidden="true">▤</span> Reports</a></li>
+          <li><a class="nav-link" href="settings.html"><span aria-hidden="true">⚙</span> Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-bottom"><p class="muted">Northstar Workspace</p><p class="muted">Accessible dashboard demo</p></div>
+    </aside>
+    <main id="main-content" class="main-content">
+      <div class="page-heading">
+        <div><p class="eyebrow">MONDAY, 25 NOVEMBER 2026</p><h1>Overview</h1><p class="muted">Here is what's happening across your workspace.</p></div>
+        <button class="button button-primary" type="button" data-open-modal="quick-add">＋ Add record</button>
+      </div>
+      <section class="stats-grid" aria-label="Workspace summary">
+        <article class="stat-card"><p class="stat-label">Total employees</p><p class="stat-value">248</p><p class="stat-note positive">↑ 8.2% <span class="muted">this month</span></p></article>
+        <article class="stat-card"><p class="stat-label">Active projects</p><p class="stat-value">32</p><p class="stat-note positive">↑ 4 new <span class="muted">this month</span></p></article>
+        <article class="stat-card"><p class="stat-label">Tasks completed</p><p class="stat-value">1,284</p><p class="stat-note positive">↑ 12.5% <span class="muted">this month</span></p></article>
+        <article class="stat-card"><p class="stat-label">Pending reviews</p><p class="stat-value">18</p><p class="stat-note warning">Needs attention</p></article>
+      </section>
+      <section class="panel" aria-labelledby="activity-title">
+        <div class="panel-heading"><div><h2 id="activity-title">Recent activity</h2><p class="muted">Latest updates from your team</p></div><a href="reports.html">View reports <span aria-hidden="true">→</span></a></div>
+        <div class="table-wrap">
+          <table>
+            <caption class="visually-hidden">Recent workspace activity, including person, activity, date, and status</caption>
+            <thead><tr><th scope="col">NAME</th><th scope="col">ACTIVITY</th><th scope="col">DATE</th><th scope="col">STATUS</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Olivia Rhye</strong><span class="cell-sub">olivia@example.com</span></td><td>Updated project roadmap</td><td>25 Nov 2026</td><td><span class="status status-green">Completed</span></td></tr>
+              <tr><td><strong>Phoenix Baker</strong><span class="cell-sub">phoenix@example.com</span></td><td>Submitted design review</td><td>24 Nov 2026</td><td><span class="status status-blue">In review</span></td></tr>
+              <tr><td><strong>Lana Steiner</strong><span class="cell-sub">lana@example.com</span></td><td>Created a new task</td><td>24 Nov 2026</td><td><span class="status status-yellow">Pending</span></td></tr>
+              <tr><td><strong>Demi Wilkinson</strong><span class="cell-sub">demi@example.com</span></td><td>Closed support ticket</td><td>23 Nov 2026</td><td><span class="status status-green">Completed</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="panel two-column" aria-labelledby="quick-title">
+        <div><h2 id="quick-title">Quick actions</h2><p class="muted">Manage common workspace activities.</p></div>
+        <div class="quick-actions"><a class="quick-card" href="employees.html"><span aria-hidden="true">♙</span><strong>Manage employees</strong><span class="muted">View and update your team</span></a><a class="quick-card" href="reports.html"><span aria-hidden="true">▤</span><strong>Explore reports</strong><span class="muted">Review workspace metrics</span></a></div>
+      </section>
+    </main>
+  </div>
+  <dialog class="modal" id="quick-add" aria-labelledby="modal-title">
+    <form method="dialog" class="modal-card" id="quick-add-form">
+      <div class="modal-heading"><div><p class="eyebrow">WORKSPACE</p><h2 id="modal-title">Add a record</h2></div><button class="icon-button" type="submit" aria-label="Close dialog">×</button></div>
+      <p class="muted">Enter the details below to create a sample record.</p>
+      <div class="form-field"><label for="record-name">Record name <span aria-hidden="true">*</span></label><input id="record-name" name="record-name" type="text" autocomplete="off" required minlength="2"></div>
+      <div class="form-field"><label for="record-type">Record type</label><select id="record-type" name="record-type"><option>Task</option><option>Project</option><option>Employee</option></select></div>
+      <div class="form-field"><label for="record-notes">Notes</label><textarea id="record-notes" name="record-notes" rows="3"></textarea></div>
+      <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+      <div class="modal-actions"><button class="button button-secondary" type="submit">Cancel</button><button class="button button-primary" id="save-record" type="button">Save record</button></div>
+    </form>
+  </dialog>
+  <footer class="site-footer">© 2026 Northstar Workspace · Built with semantic HTML5 and accessibility in mind</footer>
+</body>
+</html>
